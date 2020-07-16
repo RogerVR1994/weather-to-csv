@@ -31,15 +31,17 @@ const countBreeds = async () => {
 
 let columns = "temp,units,precipitation\n";
 
-fs.appendFileSync('data.csv', columns, 'utf-8', function (err) {
+
+fs.writeFileSync('data.csv', columns, 'utf-8', function (err) {
     if (err) {
         console.log("error");
     }
-  });
+});
+countBreeds();
 
 setInterval(() => {
     countBreeds();
-}, 1000);
+}, 1000*5*60);
 
 
 
